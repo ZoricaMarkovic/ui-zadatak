@@ -1,6 +1,7 @@
 import drivers.DriverWrapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
@@ -30,7 +31,7 @@ public class Zadatak2 extends BasePage {
 
                     // Output the message “Gallery button present!” to console if “Gallery” button exists
                     System.out.println("Gallery button present!");
-                    assert galleryButton.isDisplayed() : "Gallery button is available in the DOM, but it's not displayed.";
+                    Assert.assertTrue(galleryButton.isDisplayed(), "Gallery button is available in the DOM, but it's not displayed.");
                 }
                 else {
                     // Output the message “Gallery button missing!” to console if the “Gallery” button is not available in the DOM

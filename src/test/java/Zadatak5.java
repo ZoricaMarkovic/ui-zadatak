@@ -1,5 +1,6 @@
 import drivers.DriverWrapper;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
@@ -27,7 +28,7 @@ public class Zadatak5 extends BasePage {
 
             String text = findElementByXPath(driver, xPathExpression).getText();
 
-            assert text.equals(expectedCellValue) : "The cell doesn't have the expected value.";
+            Assert.assertEquals(text, expectedCellValue, "The cell doesn't have the expected value.");
 
         } finally {
             driver.quit();

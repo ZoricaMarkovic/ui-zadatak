@@ -1,6 +1,7 @@
 import drivers.DriverWrapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
@@ -29,19 +30,19 @@ public class Zadatak3 extends BasePage {
             clickOnElement(enableButton);
 
             // Assert that the field is actually enabled once the loading completes
-            waitForElementToBeInvisible(driver, buttonToDisappearXPath);
+            waitForElementToDisappear(driver, buttonToDisappearXPath);
 
             String text = findElementByXPath(driver, messageXPath).getText();
-            assert text.equals(buttonEnabledMessage) : "Button is disabled!";
+            Assert.assertEquals(text, buttonEnabledMessage, "Button is disabled!");
 
             // Click on the “Disable” button
             clickOnElement(enableButton);
 
             // Assert that the field is actually enabled once the loading completes
-            waitForElementToBeInvisible(driver, buttonToDisappearXPath);
+            waitForElementToDisappear(driver, buttonToDisappearXPath);
 
             text = findElementByXPath(driver, messageXPath).getText();
-            assert text.equals(buttonDisabledMessage) : "Button is enabled!";
+            Assert.assertEquals(text, buttonDisabledMessage, "Button is enabled!");
 
         } finally {
             driver.quit();

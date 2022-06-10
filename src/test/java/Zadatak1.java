@@ -1,6 +1,7 @@
 import drivers.DriverWrapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
@@ -30,10 +31,10 @@ public class Zadatak1 extends BasePage {
 
             // Verify that three “Delete” buttons are present
             List<WebElement> deleteButtons = findElementsByXPath(driver, deleteButtonXPath);
-            assert deleteButtons.size() == 3 : String.format("Should be three Delete buttons, but found: %d ", deleteButtons.size());
+            Assert.assertEquals(deleteButtons.size(), 3, String.format("Should be three Delete buttons, but found: %d ", deleteButtons.size()));
 
             for (int i = 0; i < 3; i++) {
-                assert deleteButtons.get(i).isDisplayed() : String.format("%d. Delete button is not present.", i);
+                Assert.assertTrue(deleteButtons.get(i).isDisplayed(), String.format("%d. Delete button is not present.", i));
             }
 
             // Click on the second “Delete” button
@@ -42,10 +43,10 @@ public class Zadatak1 extends BasePage {
 
             // Verify that two “Delete” buttons are present
             deleteButtons = findElementsByXPath(driver, deleteButtonXPath);
-            assert deleteButtons.size() == 2 : "Two Delete buttons are not present!";
+            Assert.assertEquals(deleteButtons.size(),2, "Two Delete buttons are not present!");
 
             for (int i = 0; i < 2; i++) {
-                assert deleteButtons.get(i).isDisplayed() : String.format("%d. Delete button is not present.", i);
+                Assert.assertTrue(deleteButtons.get(i).isDisplayed());
             }
 
         } finally {
