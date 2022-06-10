@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BasePage {
 
-    public void waitForElementToBeInvisible(WebDriver driver, String xPath) {
+    public void waitForElementToDisappear(WebDriver driver, String xPath) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xPath)));
     }
