@@ -29,7 +29,7 @@ public class Zadatak3 extends BasePage {
             clickOnElement(enableButton);
 
             // Assert that the field is actually enabled once the loading completes
-            waitForElementToDisappear(driver, buttonToDisappearXPath);
+            waitForElementToBeInvisible(driver, buttonToDisappearXPath);
 
             String text = findElementByXPath(driver, messageXPath).getText();
             assert text.equals(buttonEnabledMessage) : "Button is disabled!";
@@ -38,7 +38,7 @@ public class Zadatak3 extends BasePage {
             clickOnElement(enableButton);
 
             // Assert that the field is actually enabled once the loading completes
-            waitForElementToDisappear(driver, buttonToDisappearXPath);
+            waitForElementToBeInvisible(driver, buttonToDisappearXPath);
 
             text = findElementByXPath(driver, messageXPath).getText();
             assert text.equals(buttonDisabledMessage) : "Button is enabled!";

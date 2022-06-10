@@ -31,7 +31,11 @@ public class DriverWrapper {
 
                 WebDriverManager.safaridriver().setup();
                 return new SafariDriver();
+
+            default:
+                System.out.println("No valid driver type provided. ");
+                WebDriverManager.chromedriver().setup();
+                return new ChromeDriver();
         }
-        return null;
     }
 }

@@ -14,7 +14,7 @@ public class Zadatak1 extends BasePage {
         WebDriver driver = DriverWrapper.getWebDriver("chrome");
 
         String addElementButtonXPath = "//button[@onclick='addElement()']";
-        String deleteButtonXpath = "//button[@onclick='deleteElement()']";
+        String deleteButtonXPath = "//button[@onclick='deleteElement()']";
 
         try {
 
@@ -29,7 +29,7 @@ public class Zadatak1 extends BasePage {
             clickOnElement(addElementButton);
 
             // Verify that three “Delete” buttons are present
-            List<WebElement> deleteButtons = findElementsByXPath(driver, deleteButtonXpath);
+            List<WebElement> deleteButtons = findElementsByXPath(driver, deleteButtonXPath);
             assert deleteButtons.size() == 3 : String.format("Should be three Delete buttons, but found: %d ", deleteButtons.size());
 
             for (int i = 0; i < 3; i++) {
@@ -41,7 +41,7 @@ public class Zadatak1 extends BasePage {
             clickOnElement(secondDeleteButton);
 
             // Verify that two “Delete” buttons are present
-            deleteButtons = findElementsByXPath(driver, deleteButtonXpath);
+            deleteButtons = findElementsByXPath(driver, deleteButtonXPath);
             assert deleteButtons.size() == 2 : "Two Delete buttons are not present!";
 
             for (int i = 0; i < 2; i++) {
