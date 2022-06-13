@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.time.Duration;
 import java.util.List;
@@ -14,7 +16,7 @@ public class BasePage {
 
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void getDriver (){
         driver = DriverWrapper.getWebDriver("chrome");
     }
