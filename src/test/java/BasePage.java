@@ -1,23 +1,30 @@
-package pages;
-
+import drivers.DriverWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 import java.util.List;
 
 public class BasePage {
 
-    public void waitForElementToDisappear(WebDriver driver, String xPath) {
+    WebDriver driver;
+
+    @BeforeClass
+    public void getDriver (){
+        driver = DriverWrapper.getWebDriver("chrome");
+    }
+
+    public void waitForElementToDisappear(String xPath) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xPath)));
     }
 
-    public void waitForPresenceOfElement(WebDriver driver, String xPath) {
+    public void waitForPresenceOfElement(String xPath) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
     }
@@ -26,7 +33,7 @@ public class BasePage {
         element.click();
     }
 
-    public WebElement findElementByXPath (WebDriver driver, String xPath) {
+    public WebElement findElementByXPath (String xPath) {
 
         WebElement element;
 
@@ -40,7 +47,7 @@ public class BasePage {
         return element;
     }
 
-    public List<WebElement> findElementsByXPath (WebDriver driver, String xPath) {
+    public List<WebElement> findElementsByXPath (String xPath) {
 
         List<WebElement> elements;
 
